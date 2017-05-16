@@ -450,8 +450,8 @@
       <outputTables sizeState="INTERMEDIATE" name="out1">
         <mapperTableEntries name="day" expression="row6.day " type="id_String" nullable="true"/>
         <mapperTableEntries name="date" expression="row6.date " type="id_String" nullable="true"/>
-        <mapperTableEntries name="text1" expression="Relational.isNull(row6.text1 ):&quot;ofer&quot;?row6.text1 " type="id_String" nullable="true"/>
-        <mapperTableEntries name="text2" expression="Relational.isNull(row6.text2 ):&quot;ofer&quot;?row6.text2 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="text1" expression="Relational.isNull(row6.text1 )?&quot;ofer&quot;:row6.text1 " type="id_String" nullable="true"/>
+        <mapperTableEntries name="text2" expression="Relational.isNull(row6.text2 )?&quot;ofer&quot;:row6.text2 " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="row6" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
         <mapperTableEntries name="day" type="id_String" nullable="true"/>
