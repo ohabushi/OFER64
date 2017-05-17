@@ -309,6 +309,7 @@
   </node>
   <node componentName="tSQSInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="352" posY="512">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSQSInput_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tSQSConnection_1"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
@@ -344,6 +345,7 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="512">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -377,8 +379,9 @@
   </node>
   <node componentName="tSetGlobalVar" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="832" posY="512">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSetGlobalVar_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="VARIABLES">
-      <elementValue elementRef="KEY" value="&quot;handle&quot;"/>
+      <elementValue elementRef="KEY" value="&quot;handle2&quot;"/>
       <elementValue elementRef="VALUE" value="row5.ReceiptHandle"/>
     </elementParameter>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
@@ -391,6 +394,7 @@
   </node>
   <node componentName="tSQSMessageChangeVisibility" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="352" posY="640">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tSQSMessageChangeVisibility_2" show="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
     <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tSQSConnection_1"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;&quot;" show="false"/>
@@ -402,7 +406,7 @@
     <elementParameter field="TEXT" name="SESSION_DURATION" value="15" show="false"/>
     <elementParameter field="OPENED_LIST" name="REGION" value="DEFAULT" show="false"/>
     <elementParameter field="TEXT" name="QUEUE" value="&quot;https://sqs.eu-west-1.amazonaws.com/855211627039/ofer&quot;"/>
-    <elementParameter field="TEXT" name="RECEIPT_HANDLE" value="((String)globalMap.get(&quot;handle&quot;))"/>
+    <elementParameter field="TEXT" name="RECEIPT_HANDLE" value="((String)globalMap.get(&quot;handle2&quot;))"/>
     <elementParameter field="TEXT" name="VISIBILITY_TIMEOUT_VALUE" value="1"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
     <elementParameter field="CHECK" name="CONFIG_CLIENT" value="false" show="false"/>
@@ -434,17 +438,21 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
   </connection>
   <connection connectorName="PARALLELIZE" label="Parallelize" lineStyle="13" metaname="tParallelize_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tParallelize_1" target="tSQSInput_2">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="Parallelize" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tSQSInput_2" offsetLabelX="0" offsetLabelY="0" source="tSQSInput_2" target="tLogRow_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4" show="false"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tSQSInput_2" offsetLabelX="0" offsetLabelY="0" source="tSQSInput_2" target="tSQSMessageChangeVisibility_2">
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tLogRow_2" offsetLabelX="0" offsetLabelY="0" source="tLogRow_2" target="tSetGlobalVar_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false" show="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="row5" show="false"/>
   </connection>
   <subjob>
